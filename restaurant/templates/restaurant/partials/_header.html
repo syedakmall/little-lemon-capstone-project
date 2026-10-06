@@ -1,0 +1,15 @@
+{% load static %}
+{% with current=request.resolver_match.url_name %}
+<header class="site-header">
+  <a href="{% url 'home' %}" class="brand"><img src="{% static 'img/logo.png' %}" alt="Little Lemon" width="234" height="64"></a>
+  <nav aria-label="Main">
+    <ul>
+      <li><a href="{% url 'home' %}"{% if current == 'home' %} aria-current="page"{% endif %}>Home</a></li>
+      <li><a href="{% url 'about' %}"{% if current == 'about' %} aria-current="page"{% endif %}>About</a></li>
+      <li><a href="{% url 'menu-page' %}"{% if current == 'menu-page' or current == 'menu-item-page' %} aria-current="page"{% endif %}>Menu</a></li>
+      <li><a href="{% url 'book' %}"{% if current == 'book' %} aria-current="page"{% endif %}>Book</a></li>
+      {% if user.is_staff %}<li><a href="{% url 'reservations' %}"{% if current == 'reservations' %} aria-current="page"{% endif %}>Reservations</a></li>{% endif %}
+    </ul>
+  </nav>
+</header>
+{% endwith %}

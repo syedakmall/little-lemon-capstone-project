@@ -1,0 +1,51 @@
+{% extends 'restaurant/base.html' %}
+{% load static %}
+{% block title %}Home{% endblock %}
+{% block content %}
+<section class="hero">
+  <div class="hero-text">
+    <h1>Little Lemon</h1>
+    <p class="subtitle">Chicago</p>
+    <p>A family-owned Mediterranean restaurant serving traditional recipes with a modern twist.</p>
+    <a href="{% url 'book' %}" class="button">Reserve a table</a>
+  </div>
+  <img src="{% static 'img/restaurant.jpg' %}" alt="Inside the Little Lemon dining room" width="1200" height="800">
+</section>
+
+<section>
+  <div class="section-heading">
+    <h2>This week's specials</h2>
+    <a href="{% url 'menu-page' %}" class="button button-secondary">Full menu</a>
+  </div>
+  <div class="cards">
+    <article class="card">
+      <img src="{% static 'img/greek-salad.jpg' %}" alt="Greek salad" loading="lazy">
+      <h3>Greek Salad</h3>
+      <p>Crisp lettuce, peppers, olives and Chicago-style feta, finished with garlic and rosemary croutons.</p>
+    </article>
+    <article class="card">
+      <img src="{% static 'img/bruschetta.jpg' %}" alt="Bruschetta" loading="lazy">
+      <h3>Bruschetta</h3>
+      <p>Grilled bread rubbed with garlic, topped with tomatoes, olive oil and a pinch of salt.</p>
+    </article>
+    <article class="card">
+      <img src="{% static 'img/lemon-dessert.jpg' %}" alt="Lemon dessert" loading="lazy">
+      <h3>Lemon Dessert</h3>
+      <p>Grandma's recipe, made with ingredients sourced as close to authentic as we can get them.</p>
+    </article>
+  </div>
+</section>
+
+<section class="split">
+  <img src="{% static 'img/head-chef.jpg' %}" alt="Our head chef at work" loading="lazy">
+  <div>
+    <h2>Opening hours</h2>
+    <p>We're open seven days a week, except public holidays.</p>
+    <ul class="hours">
+      <li><span>Monday – Friday</span><span>2pm – 10pm</span></li>
+      <li><span>Saturday</span><span>2pm – 11pm</span></li>
+      <li><span>Sunday</span><span>2pm – 9pm</span></li>
+    </ul>
+  </div>
+</section>
+{% endblock %}

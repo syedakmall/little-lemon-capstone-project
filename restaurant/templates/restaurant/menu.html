@@ -1,0 +1,20 @@
+{% extends 'restaurant/base.html' %}
+{% block title %}Menu{% endblock %}
+{% block content %}
+<section>
+  <h1>Menu</h1>
+  {% if menu %}
+    <ul class="menu-list">
+      {% for item in menu %}
+        <li>
+          <a href="{% url 'menu-item-page' item.pk %}">{{ item.title }}</a>
+          <span class="price">${{ item.price }}</span>
+          {% if item.description %}<p>{{ item.description|truncatewords:18 }}</p>{% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>The menu is being updated. Please check back soon.</p>
+  {% endif %}
+</section>
+{% endblock %}

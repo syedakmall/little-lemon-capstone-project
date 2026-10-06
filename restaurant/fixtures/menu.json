@@ -1,0 +1,7 @@
+[
+  {"model": "restaurant.menu", "pk": 1, "fields": {"title": "Greek Salad", "description": "Crisp lettuce, peppers, olives and feta, finished with garlic and rosemary croutons.", "price": "12.99", "inventory": 20}},
+  {"model": "restaurant.menu", "pk": 2, "fields": {"title": "Bruschetta", "description": "Grilled bread rubbed with garlic and topped with tomatoes, olive oil and sea salt.", "price": "7.99", "inventory": 25}},
+  {"model": "restaurant.menu", "pk": 3, "fields": {"title": "Grilled Fish", "description": "Catch of the day grilled over charcoal with lemon, capers and seasonal greens.", "price": "20.00", "inventory": 10}},
+  {"model": "restaurant.menu", "pk": 4, "fields": {"title": "Pasta", "description": "House-made pasta with slow-cooked tomato sauce, basil and parmesan.", "price": "18.99", "inventory": 15}},
+  {"model": "restaurant.menu", "pk": 5, "fields": {"title": "Lemon Dessert", "description": "Grandma's lemon cake with a bright citrus glaze.", "price": "6.99", "inventory": 12}}
+]

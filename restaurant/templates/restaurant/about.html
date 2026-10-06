@@ -1,0 +1,18 @@
+{% extends 'restaurant/base.html' %}
+{% load static %}
+{% block title %}About{% endblock %}
+{% block content %}
+<section class="split">
+  <div>
+    <h1>About us</h1>
+    <p>Based in Chicago, Illinois, Little Lemon is a family-owned Mediterranean restaurant focused on traditional recipes served with a modern twist.</p>
+    <p>Our chefs draw inspiration from Italian, Greek and Turkish cooking, with a menu of 12–15 dishes that rotates with the seasons.</p>
+    <p>The restaurant is rustic and relaxed with moderate prices, which makes it an easy choice for a meal at any time of day.</p>
+    <p>Little Lemon is run by brothers Mario and Adrian, who moved to the United States to open a restaurant together. Mario builds the menu from family recipes and his years as a chef in Italy. Adrian runs marketing and pushed the menu beyond classic Italian to include dishes from across the Mediterranean.</p>
+  </div>
+  <figure>
+    <img src="{% static 'img/mario-and-adrian.jpg' %}" alt="Mario and Adrian" width="1200" height="800">
+    <figcaption>Owners Mario and Adrian.</figcaption>
+  </figure>
+</section>
+{% endblock %}

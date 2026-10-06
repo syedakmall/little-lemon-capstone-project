@@ -1,0 +1,14 @@
+{% extends 'restaurant/base.html' %}
+{% block title %}{{ item.title }}{% endblock %}
+{% block content %}
+<section>
+  <nav class="breadcrumbs" aria-label="Breadcrumb">
+    <a href="{% url 'menu-page' %}">Menu</a> / <span>{{ item.title }}</span>
+  </nav>
+  <h1>{{ item.title }}</h1>
+  <p class="price price-large">${{ item.price }}</p>
+  {% if item.description %}<p>{{ item.description }}</p>{% endif %}
+  {% if not item.inventory %}<p class="muted">Sold out today.</p>{% endif %}
+  <a href="{% url 'book' %}" class="button">Book a table</a>
+</section>
+{% endblock %}
