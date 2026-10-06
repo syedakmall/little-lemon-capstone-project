@@ -5,8 +5,10 @@
   --peach: #fbdabb;
   --light: #edefee;
   --dark: #333333;
+  --cream: #fbf8f1;
+  --deep: #2f3d38;
   --error: #b3261e;
-  --radius: 12px;
+  --radius: 16px;
   --gutter: clamp(1rem, 5vw, 4rem);
 }
 
@@ -22,7 +24,7 @@ body {
   font-size: 1.125rem;
   line-height: 1.6;
   color: var(--dark);
-  background: #fff;
+  background: var(--cream);
 }
 
 h1,
@@ -47,7 +49,17 @@ img {
 }
 
 main > section {
-  padding: 3rem var(--gutter);
+  padding: 3.5rem var(--gutter);
+}
+
+main h2::after {
+  content: '';
+  display: block;
+  width: 3rem;
+  height: 4px;
+  margin-top: 0.5rem;
+  border-radius: 2px;
+  background: var(--yellow);
 }
 
 .site-header {
@@ -57,6 +69,12 @@ main > section {
   justify-content: space-between;
   gap: 1rem;
   padding: 1rem var(--gutter);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: rgb(251 248 241 / 0.92);
+  backdrop-filter: blur(8px);
+  border-bottom: 1px solid #e6e1d6;
 }
 
 .brand img {
@@ -91,7 +109,7 @@ main > section {
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
   align-items: center;
-  background: var(--green);
+  background: linear-gradient(135deg, var(--green), var(--deep));
   color: #fff;
 }
 
@@ -112,28 +130,42 @@ main > section {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
+  box-shadow: 14px 14px 0 var(--yellow);
 }
 
 .button {
   display: inline-block;
-  padding: 0.75rem 1.5rem;
+  padding: 0.75rem 1.75rem;
   border: 0;
-  border-radius: var(--radius);
+  border-radius: 999px;
   background: var(--yellow);
   color: var(--dark);
   font: inherit;
+  font-size: 0.95rem;
   font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
 }
 
 .button:hover,
 .button:focus-visible {
   background: var(--salmon);
+  transform: translateY(-2px);
 }
 
 .button-secondary {
-  background: var(--light);
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--green);
+  color: var(--green);
+}
+
+.button-secondary:hover,
+.button-secondary:focus-visible {
+  background: var(--green);
+  color: #fff;
 }
 
 .section-heading {
@@ -152,9 +184,16 @@ main > section {
 }
 
 .card {
-  background: var(--light);
+  background: #fff;
+  border: 1px solid #ebe6da;
   border-radius: var(--radius);
   overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgb(47 61 56 / 0.12);
 }
 
 .card img {
@@ -168,7 +207,9 @@ main > section {
   padding: 0 1rem;
 }
 
-.card h3 { margin-top: 1rem; }
+.card h3 { margin-top: 1rem; color: var(--green); }
+
+.card p { margin-bottom: 1.25rem; }
 
 .split {
   display: grid;
@@ -200,7 +241,7 @@ figcaption {
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px dashed #d9d3c4;
 }
 
 .menu-list {
@@ -213,11 +254,15 @@ figcaption {
   display: grid;
   grid-template-columns: 1fr auto;
   column-gap: 1rem;
-  padding: 1rem 0;
-  border-bottom: 1px solid var(--light);
+  margin-bottom: 0.75rem;
+  padding: 1rem 1.25rem;
+  background: #fff;
+  border-left: 4px solid var(--yellow);
+  border-radius: 0 var(--radius) var(--radius) 0;
 }
 
 .menu-list a {
+  text-decoration: none;
   font-weight: 700;
   font-size: 1.25rem;
 }
@@ -257,8 +302,9 @@ input,
 select {
   width: 100%;
   padding: 0.75rem;
-  border: 1px solid #c8cbca;
-  border-radius: 8px;
+  border: 1px solid #d9d3c4;
+  border-radius: 10px;
+  background: #fff;
   font: inherit;
 }
 
@@ -297,10 +343,12 @@ input:focus {
 .table td {
   padding: 0.75rem;
   text-align: left;
-  border-bottom: 1px solid var(--light);
+  border-bottom: 1px solid #ebe6da;
 }
 
-.table th { background: var(--light); }
+.table { background: #fff; }
+
+.table th { background: var(--green); color: #fff; }
 
 .messages {
   margin: 0;
@@ -311,6 +359,7 @@ input:focus {
 .message {
   padding: 1rem var(--gutter);
   background: var(--peach);
+  border-left: 6px solid var(--salmon);
   font-weight: 700;
 }
 
@@ -319,9 +368,9 @@ input:focus {
   grid-template-columns: auto 1fr 1fr;
   gap: 2rem;
   align-items: start;
-  padding: 2.5rem var(--gutter);
-  background: var(--green);
-  color: #fff;
+  padding: 3rem var(--gutter) 2rem;
+  background: var(--deep);
+  color: #e8ebe9;
 }
 
 .site-footer h3 { color: var(--yellow); }
@@ -340,5 +389,9 @@ input:focus {
   .split,
   .site-footer {
     grid-template-columns: 1fr;
+  }
+
+  .hero img {
+    box-shadow: 8px 8px 0 var(--yellow);
   }
 }
